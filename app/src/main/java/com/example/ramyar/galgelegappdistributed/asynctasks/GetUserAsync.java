@@ -32,8 +32,8 @@ public class GetUserAsync extends AsyncTask<String, String, SoapObject> {
 
         SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME);
 
-        soap.addProperty("username", params[0] );
-        soap.addProperty("password", params[1]);
+        soap.addProperty("arg0", params[0] );
+        soap.addProperty("arg1", params[1]);
         System.out.println(params[0]);
         System.out.println(params[1]);
 
@@ -44,7 +44,10 @@ public class GetUserAsync extends AsyncTask<String, String, SoapObject> {
 
         HttpTransportSE androidHttpTransport = new HttpTransportSE(Constants.URL);
         try {
+            androidHttpTransport.debug = true;
             androidHttpTransport.call(Constants.SOAP_ACTION, envelope);
+            System.out.println(androidHttpTransport.requestDump);
+            System.out.println(androidHttpTransport.responseDump);
             SoapObject resultsRequestSOAP = (SoapObject) envelope.bodyIn;
             return resultsRequestSOAP;
 
