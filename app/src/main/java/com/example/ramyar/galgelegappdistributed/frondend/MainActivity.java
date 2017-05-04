@@ -1,4 +1,4 @@
-package com.example.ramyar.galgelegappdistributed;
+package com.example.ramyar.galgelegappdistributed.frondend;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.ramyar.galgelegappdistributed.R;
+import com.example.ramyar.galgelegappdistributed.asynctasks.GetWords;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener
 {

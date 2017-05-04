@@ -1,4 +1,4 @@
-package com.example.ramyar.galgelegappdistributed;
+package com.example.ramyar.galgelegappdistributed.frondend;
 
 import android.content.Context;
 import android.content.SharedPreferences;

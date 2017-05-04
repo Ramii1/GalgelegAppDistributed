@@ -1,4 +1,4 @@
-package com.example.ramyar.galgelegappdistributed;
+package com.example.ramyar.galgelegappdistributed.frondend;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.ramyar.galgelegappdistributed.R;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;

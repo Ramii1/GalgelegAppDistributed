@@ -26,7 +26,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Indtast brugernavn her..."
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:text="s143599" />
 
         <TextView
             android:id="@+id/password_text"
@@ -40,7 +41,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Indtast password her..."
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:text="2903" />
 
         <Button
             android:id="@+id/logind_btn"

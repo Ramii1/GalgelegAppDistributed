@@ -1,4 +1,4 @@
-package com.example.ramyar.galgelegappdistributed;
+package com.example.ramyar.galgelegappdistributed.frondend;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.example.ramyar.galgelegappdistributed.R;
 
 
 public class MulitPlayerChooseWord_frag extends Fragment

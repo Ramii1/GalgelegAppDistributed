@@ -1,6 +1,9 @@
-package com.example.ramyar.galgelegappdistributed;
+package com.example.ramyar.galgelegappdistributed.asynctasks;
 
 import android.os.AsyncTask;
+
+import com.example.ramyar.galgelegappdistributed.frondend.Constants;
+import com.example.ramyar.galgelegappdistributed.frondend.Logic;
 
 import java.io.IOException;
 import java.util.ArrayList;

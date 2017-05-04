@@ -1,4 +1,4 @@
-package com.example.ramyar.galgelegappdistributed;
+package com.example.ramyar.galgelegappdistributed.frondend;
 
 
 import android.content.Intent;
@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.example.ramyar.galgelegappdistributed.R;
 
 public class DialogHighScoreAddName_frag extends Fragment implements View.OnClickListener
 {
