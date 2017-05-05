@@ -1,11 +1,14 @@
 package com.example.ramyar.galgelegappdistributed.frondend;
 
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.ramyar.galgelegappdistributed.R;
 import com.example.ramyar.galgelegappdistributed.asynctasks.GetUserAsync;
@@ -15,7 +18,6 @@ import com.example.ramyar.galgelegappdistributed.asynctasks.GetUserAsync;
  */
 
 public class LoginActivity extends AppCompatActivity {
-
 
     /* Log */
     private static final String TAG = "";
@@ -47,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 username = username_input.getText().toString().trim();
                 password = password_input.getText().toString().trim();
+
 
              new GetUserAsync(LoginActivity.this).execute(username, password);
 

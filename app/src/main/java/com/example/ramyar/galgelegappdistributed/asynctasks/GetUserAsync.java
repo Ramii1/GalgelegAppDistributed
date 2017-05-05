@@ -2,9 +2,13 @@ package com.example.ramyar.galgelegappdistributed.asynctasks;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
+import android.widget.Toast;
 
 import com.example.ramyar.galgelegappdistributed.frondend.Constants;
+import com.example.ramyar.galgelegappdistributed.frondend.LoginActivity;
+import com.example.ramyar.galgelegappdistributed.frondend.MainActivity;
 
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.SoapObject;
@@ -66,15 +70,23 @@ public class GetUserAsync extends AsyncTask<String, String, SoapObject> {
         dialog = ProgressDialog.show(context, "please Wait", "Trying to signin");
     }
 
+
+
     @Override
     protected void onPostExecute(SoapObject result) {
+
+
 
         dialog.dismiss();
 
         if(result == null) {
             System.out.println("ERROR IN ONPOST");
-        }else {
+
+        }else if(result.getProperty(0).toString().equals("true")) {
+
             System.out.println("RESULT: " + result);
+
+            context.startActivity(new Intent(context, MainActivity.class));
         }
 
     }
