@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.ramyar.galgelegappdistributed.R;
-import com.example.ramyar.galgelegappdistributed.asynctasks.GetWords;
+import com.example.ramyar.galgelegappdistributed.asynctasks.GetWordsAsync;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener
 {
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        new GetWords().execute();
+        new GetWordsAsync().execute();
         multiplayer_text = (TextView) findViewById(R.id.multiplayer_text);
         spilBtn = (Button) findViewById(R.id.spilBtn);
         spilBtn.setOnClickListener(this);
