@@ -18,6 +18,7 @@ public class GetUserAsync {
 
     @Nullable
     public static SoapObject getSoapOpdaterSynligtOrd(String... params) {
+        SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_opdaterSynligtOrd);
 
          SoapObject getSoapOpdaterSynligtOrd = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_getSynligtOrd);
 
@@ -55,6 +56,7 @@ public class GetUserAsync {
         SoapObject soapGetSoapGetBrugteBogstaver = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_GetBrugteBogstaver);
 
         soapGetSoapGetBrugteBogstaver.addProperty("brugte bogstaver", params[0]);
+        SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_GetBrugteBogstaver);
 
         System.out.println(params[0]);
 
@@ -85,6 +87,7 @@ public class GetUserAsync {
     @Nullable
     public static SoapObject getSoapGetSynligtOrd(String... params) {
         SoapObject getSoapGetSynligtOrd = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_getSynligtOrd);
+        SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_getSynligtOrd);
 
         getSoapGetSynligtOrd.addProperty("synligtOrd", params[0]);
         System.out.println(params[0]);
@@ -115,6 +118,7 @@ public class GetUserAsync {
     @Nullable
     public static SoapObject getSoapGetOrdet(String... params) {
         SoapObject getSoapGetOrdet = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_getOrdet);
+        SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_getOrdet);
 
         getSoapGetOrdet.addProperty("arg0", params[0]);
         System.out.println(params[0]);
@@ -127,7 +131,8 @@ public class GetUserAsync {
         HttpTransportSE androidHttpTransport = new HttpTransportSE(Constants.URL);
         try {
             androidHttpTransport.debug = true;
-            androidHttpTransport.call(Constants.SOAP_ACTION_getOrde, envelope);
+            androidHttpTransport.call(Constants.SOAP_ACTION_getOrdet, envelope);
+            androidHttpTransport.call(Constants.SOAP_ACTION_getOrdet, envelope);
 
             System.out.println(androidHttpTransport.requestDump);
             System.out.println(androidHttpTransport.responseDump);
@@ -175,6 +180,7 @@ public class GetUserAsync {
     @Nullable
     public static SoapObject getSoapErSidsteBogstavKorrekt(String... params) {
         SoapObject getSoapErSidsteBogstavKorrekt = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_erSidsteBogstavKorrekt);
+        SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_erSidsteBogstavKorrekt);
 
         getSoapErSidsteBogstavKorrekt.addProperty("arg0", params[0]);
         System.out.println(params[0]);
@@ -204,7 +210,11 @@ public class GetUserAsync {
 
     @Nullable
     public static SoapObject getSoapErSpilletVundet(String... params) {
+
         SoapObject getSoapErSpilletVundet = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_erSpilletVundet);
+
+        SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_erSpilletVundet);
+
 
         getSoapErSpilletVundet.addProperty("arg0", params[0]);
         System.out.println(params[0]);
@@ -234,7 +244,11 @@ public class GetUserAsync {
 
     @Nullable
     public static SoapObject getSoapErSpilletTabt(String... params) {
+
         SoapObject getSoapErSpilletTabt = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_hentBruger);
+
+        SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_erSpilletTabt);
+
 
         getSoapErSpilletTabt.addProperty("arg0", params[0]);
         System.out.println(params[0]);
@@ -264,7 +278,11 @@ public class GetUserAsync {
 
     @Nullable
     public static SoapObject getSoapErSpilletSlut(String... params) {
+
         SoapObject getSoapErSpilletSlut = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_erSpilletSlut);
+
+        SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_erSpilletSlut);
+
 
         getSoapErSpilletSlut.addProperty("arg0", params[0]);
         System.out.println(params[0]);
@@ -294,7 +312,10 @@ public class GetUserAsync {
 
     @Nullable
     public static SoapObject getSoapNulstil(String... params) {
+
         SoapObject getSoapNulstil = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_hentBruger);
+
+        SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_nulstil);
 
         getSoapNulstil.addProperty("arg0", params[0]);
         System.out.println(params[0]);
@@ -324,7 +345,11 @@ public class GetUserAsync {
 
     @Nullable
     public static SoapObject getSoapGætBogstav(String... params) {
+
         SoapObject getSoapGætBogstav = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_gætBogstav);
+
+        SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_gætBogstav);
+
 
         getSoapGætBogstav.addProperty("arg0", params[0]);
         System.out.println(params[0]);
@@ -387,6 +412,7 @@ public class GetUserAsync {
     @Nullable
     public static SoapObject getSoapGetFornavn(String... params) {
         SoapObject getSoapGetFornavn = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_getFornavn);
+        SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_getFornavn);
 
         getSoapGetFornavn.addProperty("arg0", params[0]);
         System.out.println(params[0]);
@@ -417,6 +443,7 @@ public class GetUserAsync {
     @Nullable
     public static SoapObject getSoapGetRankList(String... params) {
         SoapObject getSoapGetRankList = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_getRankLis);
+        SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_getRankLis);
 
         getSoapGetRankList.addProperty("arg0", params[0]);
         System.out.println(params[0]);
@@ -447,6 +474,7 @@ public class GetUserAsync {
     @Nullable
     public static SoapObject getSoapGetScore(String... params) {
         SoapObject getSoapGetScore = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_getScore);
+        SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_getScore);
 
         getSoapGetScore.addProperty("arg0", params[0]);
         System.out.println(params[0]);
@@ -477,6 +505,7 @@ public class GetUserAsync {
     @Nullable
     public static SoapObject getSoapToString(String... params) {
         SoapObject getSoapToString = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_toString);
+        SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_toString);
 
         getSoapToString.addProperty("arg0", params[0]);
         System.out.println(params[0]);
