@@ -38,6 +38,10 @@ public class Constants extends Application
     public static String METHOD_NAME_hentBruger = "hentBruger";
 
 
+    public static String SOAP_ACTION1 = "http://galgeleg/hentBrugerRequest";
+    public static String SOAP_ACTION2 = "http://galgeleg/getScore";
+    public static String METHOD_NAME1 = "hentBruger";
+    public static String METHOD_NAME2 = "hentBruger";
 
     public static ArrayList<String> wordList = new ArrayList<String>();
     static String gameType;

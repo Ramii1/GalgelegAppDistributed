@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 
 
-public class GetWords extends AsyncTask<Void, Void, ArrayList<String>>
+public class GetWordsAsync extends AsyncTask<Void, Void, ArrayList<String>>
 {
 
     private Logic logic;
