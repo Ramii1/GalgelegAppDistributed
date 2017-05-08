@@ -12,6 +12,7 @@ public class Constants extends Application
     /* SOAP */
     public static String NAMESPACE = "http://galgeleg/";
     public static String URL = "http://130.226.195.227:9591/galgelegtjeneste?wsdl";
+
     public static String SOAP_ACTION_GetBrugteBogstaver = "http://galgeleg/getBrugteBogstaverRequest";
     public static String METHOD_NAME_GetBrugteBogstaver = "getBrugteBogstaver";
     public static String SOAP_ACTION_getSynligtOrd = "http://galgeleg/getSynligtOrdRequest";
@@ -36,12 +37,6 @@ public class Constants extends Application
     public static String METHOD_NAME_gætBogstav = "gætBogstav";
     public static String SOAP_ACTION_hentBruger = "http://galgeleg/hentBrugerRequest";
     public static String METHOD_NAME_hentBruger = "hentBruger";
-
-
-    public static String SOAP_ACTION1 = "http://galgeleg/hentBrugerRequest";
-    public static String SOAP_ACTION2 = "http://galgeleg/getScore";
-    public static String METHOD_NAME1 = "hentBruger";
-    public static String METHOD_NAME2 = "hentBruger";
 
     public static ArrayList<String> wordList = new ArrayList<String>();
     static String gameType;

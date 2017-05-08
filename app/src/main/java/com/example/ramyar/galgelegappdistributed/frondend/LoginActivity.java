@@ -1,6 +1,7 @@
 package com.example.ramyar.galgelegappdistributed.frondend;
 
-import android.content.Intent;
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -10,6 +11,8 @@ import android.widget.TextView;
 
 import com.example.ramyar.galgelegappdistributed.R;
 import com.example.ramyar.galgelegappdistributed.asynctasks.GetUserAsync;
+
+import org.ksoap2.serialization.SoapObject;
 
 /**
  * Created by Ramyar on 02-05-2017.
@@ -46,15 +49,28 @@ GetUserAsync getUserAsync = new GetUserAsync(this);
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                username = username_input.getText().toString().trim();
-                password = password_input.getText().toString().trim();
-
-             new GetUserAsync(LoginActivity.this).execute(username, password);
-
-
-
-
+                doLogin();
             }
         });
+    }
+
+    private void doLogin() {
+        username = username_input.getText().toString().trim();
+        password = password_input.getText().toString().trim();
+
+        //new GetUserAsync(LoginActivity.this).execute(username, password);
+        final ProgressDialog dialog = ProgressDialog.show(this, "please Wait", "Trying to signin");
+        new AsyncTask() {
+            @Override
+            protected Object doInBackground(Object[] params) {
+                return GetUserAsync.getSoapUser(username, password);
+            }
+
+            @Override
+            protected void onPostExecute(Object o) {
+                SoapObject so = (SoapObject) o;
+                dialog.dismiss();
+            }
+        }.execute();
     }
 }

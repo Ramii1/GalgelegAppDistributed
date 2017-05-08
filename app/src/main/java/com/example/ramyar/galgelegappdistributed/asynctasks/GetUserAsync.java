@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.support.annotation.Nullable;
 
 import com.example.ramyar.galgelegappdistributed.frondend.Constants;
 import com.example.ramyar.galgelegappdistributed.frondend.MainActivity;
@@ -33,8 +34,13 @@ public class GetUserAsync extends AsyncTask<String, String, SoapObject> {
     protected SoapObject doInBackground(String... params) {
 
 
-        SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_hentBruger);
+        SoapObject resultsRequestSOAP = getSoapUser(params);
+        return resultsRequestSOAP;
+    }
 
+    @Nullable
+    public static SoapObject getSoapUser(String... params) {
+        SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_hentBruger);
 
         soap.addProperty("arg0", params[0] );
         soap.addProperty("arg1", params[1]);
@@ -51,8 +57,6 @@ public class GetUserAsync extends AsyncTask<String, String, SoapObject> {
             androidHttpTransport.debug = true;
             androidHttpTransport.call(Constants.SOAP_ACTION_hentBruger, envelope);
 
-            androidHttpTransport.call(Constants.SOAP_ACTION1, envelope);
-
             System.out.println(androidHttpTransport.requestDump);
             System.out.println(androidHttpTransport.responseDump);
             SoapObject resultsRequestSOAP = (SoapObject) envelope.bodyIn;
@@ -62,9 +66,7 @@ public class GetUserAsync extends AsyncTask<String, String, SoapObject> {
             e.printStackTrace();
             System.out.println("Error" + e);
         }
-
         return null;
-
     }
 
     @Override
