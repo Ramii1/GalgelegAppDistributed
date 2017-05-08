@@ -16,7 +16,6 @@ import org.ksoap2.transport.HttpTransportSE;
 public class GetUserAsync {
 
 
-
     @Nullable
     public static SoapObject getSoapUser(String... params) {
         SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_hentBruger);
