@@ -18,22 +18,24 @@ public class GetUserAsync {
 
     @Nullable
     public static SoapObject getSoapOpdaterSynligtOrd(String... params) {
-        SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_hentBruger);
 
-        soap.addProperty("arg0", params[0]);
-        soap.addProperty("arg1", params[1]);
+         SoapObject getSoapOpdaterSynligtOrd = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_getSynligtOrd);
+
+
+        getSoapOpdaterSynligtOrd.addProperty("opdaterSynligtOrd ", params[0]);
+
         System.out.println(params[0]);
-        System.out.println(params[1]);
+
 
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-        envelope.setOutputSoapObject(soap);
+        envelope.setOutputSoapObject(getSoapOpdaterSynligtOrd);
 
-        System.out.println("soap output " + envelope.toString());
+        System.out.println("soap getSoapOpdaterSynligtOrd " + envelope.toString());
 
         HttpTransportSE androidHttpTransport = new HttpTransportSE(Constants.URL);
         try {
             androidHttpTransport.debug = true;
-            androidHttpTransport.call(Constants.SOAP_ACTION_hentBruger, envelope);
+            androidHttpTransport.call(Constants.SOAP_ACTION_opdaterSynligtOrd, envelope);
 
             System.out.println(androidHttpTransport.requestDump);
             System.out.println(androidHttpTransport.responseDump);
@@ -50,22 +52,22 @@ public class GetUserAsync {
 
     @Nullable
     public static SoapObject getSoapGetBrugteBogstaver(String... params) {
-        SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_hentBruger);
+        SoapObject soapGetSoapGetBrugteBogstaver = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_GetBrugteBogstaver);
 
-        soap.addProperty("arg0", params[0]);
-        soap.addProperty("arg1", params[1]);
+        soapGetSoapGetBrugteBogstaver.addProperty("brugte bogstaver", params[0]);
+
         System.out.println(params[0]);
-        System.out.println(params[1]);
+
 
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-        envelope.setOutputSoapObject(soap);
+        envelope.setOutputSoapObject(soapGetSoapGetBrugteBogstaver);
 
         System.out.println("soap output " + envelope.toString());
 
         HttpTransportSE androidHttpTransport = new HttpTransportSE(Constants.URL);
         try {
             androidHttpTransport.debug = true;
-            androidHttpTransport.call(Constants.SOAP_ACTION_hentBruger, envelope);
+            androidHttpTransport.call(Constants.SOAP_ACTION_GetBrugteBogstaver, envelope);
 
             System.out.println(androidHttpTransport.requestDump);
             System.out.println(androidHttpTransport.responseDump);
@@ -82,22 +84,20 @@ public class GetUserAsync {
 
     @Nullable
     public static SoapObject getSoapGetSynligtOrd(String... params) {
-        SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_hentBruger);
+        SoapObject getSoapGetSynligtOrd = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_getSynligtOrd);
 
-        soap.addProperty("arg0", params[0]);
-        soap.addProperty("arg1", params[1]);
+        getSoapGetSynligtOrd.addProperty("synligtOrd", params[0]);
         System.out.println(params[0]);
-        System.out.println(params[1]);
 
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-        envelope.setOutputSoapObject(soap);
+        envelope.setOutputSoapObject(getSoapGetSynligtOrd);
 
         System.out.println("soap output " + envelope.toString());
 
         HttpTransportSE androidHttpTransport = new HttpTransportSE(Constants.URL);
         try {
             androidHttpTransport.debug = true;
-            androidHttpTransport.call(Constants.SOAP_ACTION_hentBruger, envelope);
+            androidHttpTransport.call(Constants.SOAP_ACTION_getSynligtOrd, envelope);
 
             System.out.println(androidHttpTransport.requestDump);
             System.out.println(androidHttpTransport.responseDump);
@@ -114,22 +114,20 @@ public class GetUserAsync {
 
     @Nullable
     public static SoapObject getSoapGetOrdet(String... params) {
-        SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_hentBruger);
+        SoapObject getSoapGetOrdet = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_getOrdet);
 
-        soap.addProperty("arg0", params[0]);
-        soap.addProperty("arg1", params[1]);
+        getSoapGetOrdet.addProperty("arg0", params[0]);
         System.out.println(params[0]);
-        System.out.println(params[1]);
 
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-        envelope.setOutputSoapObject(soap);
+        envelope.setOutputSoapObject(getSoapGetOrdet);
 
         System.out.println("soap output " + envelope.toString());
 
         HttpTransportSE androidHttpTransport = new HttpTransportSE(Constants.URL);
         try {
             androidHttpTransport.debug = true;
-            androidHttpTransport.call(Constants.SOAP_ACTION_hentBruger, envelope);
+            androidHttpTransport.call(Constants.SOAP_ACTION_getOrde, envelope);
 
             System.out.println(androidHttpTransport.requestDump);
             System.out.println(androidHttpTransport.responseDump);
@@ -146,22 +144,20 @@ public class GetUserAsync {
 
     @Nullable
     public static SoapObject getSoapGetAntalForkerteBogstaver(String... params) {
-        SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_hentBruger);
+        SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_getAntalForkerteBogstaver);
 
-        soap.addProperty("arg0", params[0]);
-        soap.addProperty("arg1", params[1]);
+        getSoapGetAntalForkerteBogstaver().addProperty("arg0", params[0]);
         System.out.println(params[0]);
-        System.out.println(params[1]);
 
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-        envelope.setOutputSoapObject(soap);
+        envelope.setOutputSoapObject(getSoapGetAntalForkerteBogstaver());
 
         System.out.println("soap output " + envelope.toString());
 
         HttpTransportSE androidHttpTransport = new HttpTransportSE(Constants.URL);
         try {
             androidHttpTransport.debug = true;
-            androidHttpTransport.call(Constants.SOAP_ACTION_hentBruger, envelope);
+            androidHttpTransport.call(Constants.SOAP_ACTION_getAntalForkerteBogstaver, envelope);
 
             System.out.println(androidHttpTransport.requestDump);
             System.out.println(androidHttpTransport.responseDump);
@@ -178,22 +174,20 @@ public class GetUserAsync {
 
     @Nullable
     public static SoapObject getSoapErSidsteBogstavKorrekt(String... params) {
-        SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_hentBruger);
+        SoapObject getSoapErSidsteBogstavKorrekt = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_erSidsteBogstavKorrekt);
 
-        soap.addProperty("arg0", params[0]);
-        soap.addProperty("arg1", params[1]);
+        getSoapErSidsteBogstavKorrekt.addProperty("arg0", params[0]);
         System.out.println(params[0]);
-        System.out.println(params[1]);
 
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-        envelope.setOutputSoapObject(soap);
+        envelope.setOutputSoapObject(getSoapErSidsteBogstavKorrekt);
 
         System.out.println("soap output " + envelope.toString());
 
         HttpTransportSE androidHttpTransport = new HttpTransportSE(Constants.URL);
         try {
             androidHttpTransport.debug = true;
-            androidHttpTransport.call(Constants.SOAP_ACTION_hentBruger, envelope);
+            androidHttpTransport.call(Constants.SOAP_ACTION_erSidsteBogstavKorrekt, envelope);
 
             System.out.println(androidHttpTransport.requestDump);
             System.out.println(androidHttpTransport.responseDump);
@@ -210,22 +204,20 @@ public class GetUserAsync {
 
     @Nullable
     public static SoapObject getSoapErSpilletVundet(String... params) {
-        SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_hentBruger);
+        SoapObject getSoapErSpilletVundet = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_erSpilletVundet);
 
-        soap.addProperty("arg0", params[0]);
-        soap.addProperty("arg1", params[1]);
+        getSoapErSpilletVundet.addProperty("arg0", params[0]);
         System.out.println(params[0]);
-        System.out.println(params[1]);
 
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-        envelope.setOutputSoapObject(soap);
+        envelope.setOutputSoapObject(getSoapErSpilletVundet);
 
         System.out.println("soap output " + envelope.toString());
 
         HttpTransportSE androidHttpTransport = new HttpTransportSE(Constants.URL);
         try {
             androidHttpTransport.debug = true;
-            androidHttpTransport.call(Constants.SOAP_ACTION_hentBruger, envelope);
+            androidHttpTransport.call(Constants.SOAP_ACTION_erSpilletVundet, envelope);
 
             System.out.println(androidHttpTransport.requestDump);
             System.out.println(androidHttpTransport.responseDump);
@@ -242,22 +234,20 @@ public class GetUserAsync {
 
     @Nullable
     public static SoapObject getSoapErSpilletTabt(String... params) {
-        SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_hentBruger);
+        SoapObject getSoapErSpilletTabt = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_hentBruger);
 
-        soap.addProperty("arg0", params[0]);
-        soap.addProperty("arg1", params[1]);
+        getSoapErSpilletTabt.addProperty("arg0", params[0]);
         System.out.println(params[0]);
-        System.out.println(params[1]);
 
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-        envelope.setOutputSoapObject(soap);
+        envelope.setOutputSoapObject(getSoapErSpilletTabt);
 
         System.out.println("soap output " + envelope.toString());
 
         HttpTransportSE androidHttpTransport = new HttpTransportSE(Constants.URL);
         try {
             androidHttpTransport.debug = true;
-            androidHttpTransport.call(Constants.SOAP_ACTION_hentBruger, envelope);
+            androidHttpTransport.call(Constants.SOAP_ACTION_erSpilletTabt, envelope);
 
             System.out.println(androidHttpTransport.requestDump);
             System.out.println(androidHttpTransport.responseDump);
@@ -274,22 +264,20 @@ public class GetUserAsync {
 
     @Nullable
     public static SoapObject getSoapErSpilletSlut(String... params) {
-        SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_hentBruger);
+        SoapObject getSoapErSpilletSlut = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_erSpilletSlut);
 
-        soap.addProperty("arg0", params[0]);
-        soap.addProperty("arg1", params[1]);
+        getSoapErSpilletSlut.addProperty("arg0", params[0]);
         System.out.println(params[0]);
-        System.out.println(params[1]);
 
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-        envelope.setOutputSoapObject(soap);
+        envelope.setOutputSoapObject(getSoapErSpilletSlut);
 
         System.out.println("soap output " + envelope.toString());
 
         HttpTransportSE androidHttpTransport = new HttpTransportSE(Constants.URL);
         try {
             androidHttpTransport.debug = true;
-            androidHttpTransport.call(Constants.SOAP_ACTION_hentBruger, envelope);
+            androidHttpTransport.call(Constants.SOAP_ACTION_erSpilletSlut, envelope);
 
             System.out.println(androidHttpTransport.requestDump);
             System.out.println(androidHttpTransport.responseDump);
@@ -306,22 +294,20 @@ public class GetUserAsync {
 
     @Nullable
     public static SoapObject getSoapNulstil(String... params) {
-        SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_hentBruger);
+        SoapObject getSoapNulstil = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_hentBruger);
 
-        soap.addProperty("arg0", params[0]);
-        soap.addProperty("arg1", params[1]);
+        getSoapNulstil.addProperty("arg0", params[0]);
         System.out.println(params[0]);
-        System.out.println(params[1]);
 
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-        envelope.setOutputSoapObject(soap);
+        envelope.setOutputSoapObject(getSoapNulstil);
 
         System.out.println("soap output " + envelope.toString());
 
         HttpTransportSE androidHttpTransport = new HttpTransportSE(Constants.URL);
         try {
             androidHttpTransport.debug = true;
-            androidHttpTransport.call(Constants.SOAP_ACTION_hentBruger, envelope);
+            androidHttpTransport.call(Constants.SOAP_ACTION_nulstil, envelope);
 
             System.out.println(androidHttpTransport.requestDump);
             System.out.println(androidHttpTransport.responseDump);
@@ -338,22 +324,20 @@ public class GetUserAsync {
 
     @Nullable
     public static SoapObject getSoapGætBogstav(String... params) {
-        SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_hentBruger);
+        SoapObject getSoapGætBogstav = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_gætBogstav);
 
-        soap.addProperty("arg0", params[0]);
-        soap.addProperty("arg1", params[1]);
+        getSoapGætBogstav.addProperty("arg0", params[0]);
         System.out.println(params[0]);
-        System.out.println(params[1]);
 
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-        envelope.setOutputSoapObject(soap);
+        envelope.setOutputSoapObject(getSoapGætBogstav);
 
         System.out.println("soap output " + envelope.toString());
 
         HttpTransportSE androidHttpTransport = new HttpTransportSE(Constants.URL);
         try {
             androidHttpTransport.debug = true;
-            androidHttpTransport.call(Constants.SOAP_ACTION_hentBruger, envelope);
+            androidHttpTransport.call(Constants.SOAP_ACTION_gætBogstav, envelope);
 
             System.out.println(androidHttpTransport.requestDump);
             System.out.println(androidHttpTransport.responseDump);
@@ -402,22 +386,20 @@ public class GetUserAsync {
 
     @Nullable
     public static SoapObject getSoapGetFornavn(String... params) {
-        SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_hentBruger);
+        SoapObject getSoapGetFornavn = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_getFornavn);
 
-        soap.addProperty("arg0", params[0]);
-        soap.addProperty("arg1", params[1]);
+        getSoapGetFornavn.addProperty("arg0", params[0]);
         System.out.println(params[0]);
-        System.out.println(params[1]);
 
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-        envelope.setOutputSoapObject(soap);
+        envelope.setOutputSoapObject(getSoapGetFornavn);
 
         System.out.println("soap output " + envelope.toString());
 
         HttpTransportSE androidHttpTransport = new HttpTransportSE(Constants.URL);
         try {
             androidHttpTransport.debug = true;
-            androidHttpTransport.call(Constants.SOAP_ACTION_hentBruger, envelope);
+            androidHttpTransport.call(Constants.SOAP_ACTION_getFornavn, envelope);
 
             System.out.println(androidHttpTransport.requestDump);
             System.out.println(androidHttpTransport.responseDump);
@@ -434,22 +416,20 @@ public class GetUserAsync {
 
     @Nullable
     public static SoapObject getSoapGetRankList(String... params) {
-        SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_hentBruger);
+        SoapObject getSoapGetRankList = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_getRankLis);
 
-        soap.addProperty("arg0", params[0]);
-        soap.addProperty("arg1", params[1]);
+        getSoapGetRankList.addProperty("arg0", params[0]);
         System.out.println(params[0]);
-        System.out.println(params[1]);
 
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-        envelope.setOutputSoapObject(soap);
+        envelope.setOutputSoapObject(getSoapGetRankList);
 
         System.out.println("soap output " + envelope.toString());
 
         HttpTransportSE androidHttpTransport = new HttpTransportSE(Constants.URL);
         try {
             androidHttpTransport.debug = true;
-            androidHttpTransport.call(Constants.SOAP_ACTION_hentBruger, envelope);
+            androidHttpTransport.call(Constants.SOAP_ACTION_getRankList, envelope);
 
             System.out.println(androidHttpTransport.requestDump);
             System.out.println(androidHttpTransport.responseDump);
@@ -466,22 +446,20 @@ public class GetUserAsync {
 
     @Nullable
     public static SoapObject getSoapGetScore(String... params) {
-        SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_hentBruger);
+        SoapObject getSoapGetScore = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_getScore);
 
-        soap.addProperty("arg0", params[0]);
-        soap.addProperty("arg1", params[1]);
+        getSoapGetScore.addProperty("arg0", params[0]);
         System.out.println(params[0]);
-        System.out.println(params[1]);
 
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-        envelope.setOutputSoapObject(soap);
+        envelope.setOutputSoapObject(getSoapGetScore);
 
         System.out.println("soap output " + envelope.toString());
 
         HttpTransportSE androidHttpTransport = new HttpTransportSE(Constants.URL);
         try {
             androidHttpTransport.debug = true;
-            androidHttpTransport.call(Constants.SOAP_ACTION_hentBruger, envelope);
+            androidHttpTransport.call(Constants.SOAP_ACTION_getScore, envelope);
 
             System.out.println(androidHttpTransport.requestDump);
             System.out.println(androidHttpTransport.responseDump);
@@ -498,22 +476,20 @@ public class GetUserAsync {
 
     @Nullable
     public static SoapObject getSoapToString(String... params) {
-        SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_hentBruger);
+        SoapObject getSoapToString = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_toString);
 
-        soap.addProperty("arg0", params[0]);
-        soap.addProperty("arg1", params[1]);
+        getSoapToString.addProperty("arg0", params[0]);
         System.out.println(params[0]);
-        System.out.println(params[1]);
 
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-        envelope.setOutputSoapObject(soap);
+        envelope.setOutputSoapObject(getSoapToString);
 
         System.out.println("soap output " + envelope.toString());
 
         HttpTransportSE androidHttpTransport = new HttpTransportSE(Constants.URL);
         try {
             androidHttpTransport.debug = true;
-            androidHttpTransport.call(Constants.SOAP_ACTION_hentBruger, envelope);
+            androidHttpTransport.call(Constants.SOAP_ACTION_toString, envelope);
 
             System.out.println(androidHttpTransport.requestDump);
             System.out.println(androidHttpTransport.responseDump);
