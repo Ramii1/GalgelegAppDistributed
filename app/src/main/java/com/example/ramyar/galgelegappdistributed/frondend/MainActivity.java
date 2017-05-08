@@ -50,14 +50,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             ft.addToBackStack(null);
             ft.commit();
         }
-        else if (v == multiBtn)
+/*        else if (v == multiBtn)
         {
             Constants.gameType = "multiPlayer";
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.fragment_container , new DialogHighScoreAddName_frag());
             ft.addToBackStack(null);
             ft.commit();
-        }
+        }*/
         else if(v == highScoreBtn )
         {
             Intent intent = new Intent(this , HighScoreActivity.class);

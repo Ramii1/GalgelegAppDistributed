@@ -58,16 +58,17 @@
                 android:layout_centerHorizontal="true" />
 
             <Button
-                android:text="multiplayer"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/multiBtn" />
-
-            <Button
                 android:text="High Score"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/highScoreBtn" />
+
+            <Button
+                android:text="About"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/multiBtn" />
+
 
         </LinearLayout>
 
