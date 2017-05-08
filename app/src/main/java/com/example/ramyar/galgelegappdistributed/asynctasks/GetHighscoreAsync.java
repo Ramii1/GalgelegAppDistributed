@@ -4,10 +4,8 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.widget.Toast;
 
 import com.example.ramyar.galgelegappdistributed.frondend.Constants;
-import com.example.ramyar.galgelegappdistributed.frondend.LoginActivity;
 import com.example.ramyar.galgelegappdistributed.frondend.MainActivity;
 
 import org.ksoap2.SoapEnvelope;
@@ -15,18 +13,19 @@ import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 
+
 /**
- * Created by Ramyar on 04-05-2017.
+ * Created by haydar on 05/05/2017.
  */
 
-public class GetUserAsync extends AsyncTask<String, String, SoapObject> {
+public class GetHighscoreAsync extends AsyncTask<String, String, SoapObject> {
 
 
     ProgressDialog dialog;
     Context context;
 
 
-    public GetUserAsync(Context context) {
+    public GetHighscoreAsync(Context context) {
         this.context = context;
     }
 
@@ -34,7 +33,7 @@ public class GetUserAsync extends AsyncTask<String, String, SoapObject> {
     @Override
     protected SoapObject doInBackground(String... params) {
 
-        SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME1);
+        SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME2);
 
         soap.addProperty("arg0", params[0] );
         soap.addProperty("arg1", params[1]);
@@ -49,7 +48,7 @@ public class GetUserAsync extends AsyncTask<String, String, SoapObject> {
         HttpTransportSE androidHttpTransport = new HttpTransportSE(Constants.URL);
         try {
             androidHttpTransport.debug = true;
-            androidHttpTransport.call(Constants.SOAP_ACTION1, envelope);
+            androidHttpTransport.call(Constants.SOAP_ACTION2, envelope);
             System.out.println(androidHttpTransport.requestDump);
             System.out.println(androidHttpTransport.responseDump);
             SoapObject resultsRequestSOAP = (SoapObject) envelope.bodyIn;
