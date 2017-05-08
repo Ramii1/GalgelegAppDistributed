@@ -17,7 +17,7 @@ public class Constants extends Application
     public static String METHOD_NAME_GetBrugteBogstaver = "getBrugteBogstaver";
     public static String SOAP_ACTION_getSynligtOrd = "http://galgelegport/wsdl/getSynligtOrdRequest";
     public static String METHOD_NAME_getSynligtOrd = "tns:getSynligtOrd";
-    public static String SOAP_ACTION_getOrde = "http://galgelegport/wsdl/getOrdetRequest";
+    public static String SOAP_ACTION_getOrdet = "http://galgelegport/wsdl/getOrdetRequest";
     public static String METHOD_NAME_getOrdet = "getOrdet";
     public static String SOAP_ACTION_getAntalForkerteBogstaver = "http://galgelegport/wsdl/getAntalForkerteBogstaverRequest";
     public static String METHOD_NAME_getAntalForkerteBogstaver = "getAntalForkerteBogstaver";
