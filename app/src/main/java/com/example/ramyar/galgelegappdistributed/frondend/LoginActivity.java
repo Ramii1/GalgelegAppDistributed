@@ -1,6 +1,7 @@
 package com.example.ramyar.galgelegappdistributed.frondend;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -19,7 +20,8 @@ import org.ksoap2.serialization.SoapObject;
  */
 
 public class LoginActivity extends AppCompatActivity {
-GetUserAsync getUserAsync = new GetUserAsync(this);
+
+    GetUserAsync getUserAsync = new GetUserAsync(this);
 
     /* Log */
     private static final String TAG = "";
@@ -60,16 +62,31 @@ GetUserAsync getUserAsync = new GetUserAsync(this);
 
         //new GetUserAsync(LoginActivity.this).execute(username, password);
         final ProgressDialog dialog = ProgressDialog.show(this, "please Wait", "Trying to signin");
+
         new AsyncTask() {
             @Override
-            protected Object doInBackground(Object[] params) {
+            protected SoapObject doInBackground(Object[] params) {
                 return GetUserAsync.getSoapUser(username, password);
             }
 
             @Override
             protected void onPostExecute(Object o) {
-                SoapObject so = (SoapObject) o;
                 dialog.dismiss();
+
+                SoapObject so = (SoapObject) o;
+
+                if(so.getProperty(0).toString().equals("true")) {
+
+                    LoginActivity.this.startActivity(new Intent(LoginActivity.this, MainActivity.class));
+
+                    System.out.println("RESULT: " + so);
+
+                }else {
+
+                    System.out.println("ERROR IN ONPOST");
+
+                }
+
             }
         }.execute();
     }

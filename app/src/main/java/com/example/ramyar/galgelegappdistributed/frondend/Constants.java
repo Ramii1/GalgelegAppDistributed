@@ -10,8 +10,8 @@ public class Constants extends Application
 
 
     /* SOAP */
-    public static String NAMESPACE = "http://galgeleg/";
-    public static String URL = "http://130.226.195.227:9591/galgelegtjeneste?wsdl";
+    public static String NAMESPACE = "http://galgelegport/wsdl/";
+    public static String URL = "http://ubuntu4.javabog.dk:9591/Gruppe11/GalgeService?wsdl";
 
     public static String SOAP_ACTION_GetBrugteBogstaver = "http://galgeleg/getBrugteBogstaverRequest";
     public static String METHOD_NAME_GetBrugteBogstaver = "getBrugteBogstaver";

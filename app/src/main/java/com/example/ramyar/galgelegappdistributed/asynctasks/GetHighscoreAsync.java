@@ -1,3 +1,4 @@
+/*
 package com.example.ramyar.galgelegappdistributed.asynctasks;
 
 import android.app.ProgressDialog;
@@ -14,9 +15,11 @@ import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 
 
+*/
 /**
  * Created by haydar on 05/05/2017.
- */
+ *//*
+
 
 public class GetHighscoreAsync extends AsyncTask<String, String, SoapObject> {
 
@@ -90,3 +93,4 @@ public class GetHighscoreAsync extends AsyncTask<String, String, SoapObject> {
 
     }
 }
+*/

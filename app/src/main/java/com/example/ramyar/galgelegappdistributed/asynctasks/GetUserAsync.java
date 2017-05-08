@@ -95,4 +95,5 @@ public class GetUserAsync extends AsyncTask<String, String, SoapObject> {
         }
 
     }
+
 }
