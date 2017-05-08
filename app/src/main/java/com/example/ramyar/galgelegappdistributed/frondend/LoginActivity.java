@@ -66,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
         new AsyncTask() {
             @Override
             protected SoapObject doInBackground(Object[] params) {
-                return GetUserAsync.getSoapUser(username, password);
+                return GetUserAsync.getSoapHentBruger(username, password);
             }
 
             @Override
