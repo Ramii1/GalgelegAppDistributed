@@ -21,7 +21,7 @@ import org.ksoap2.serialization.SoapObject;
 
 public class LoginActivity extends AppCompatActivity {
 
-    GetUserAsync getUserAsync = new GetUserAsync(this);
+  /*  GetUserAsync getUserAsync = new GetUserAsync(this);*/
 
     /* Log */
     private static final String TAG = "";

@@ -10,7 +10,7 @@ public class Constants extends Application
 
 
     /* SOAP */
-    public static String NAMESPACE = "http://galgelegport/wsdl/";
+    public static String NAMESPACE = "http://galgelegport/wsdl";
     public static String URL = "http://ubuntu4.javabog.dk:9591/Gruppe11/GalgeService?wsdl";
 
     public static String SOAP_ACTION_GetBrugteBogstaver = "http://galgeleg/getBrugteBogstaverRequest";
@@ -35,7 +35,7 @@ public class Constants extends Application
     public static String METHOD_NAME_opdaterSynligtOrd = "opdaterSynligtOrd";
     public static String SOAP_ACTION_gætBogstav = "http://galgeleg/gætBogstavRequest";
     public static String METHOD_NAME_gætBogstav = "gætBogstav";
-    public static String SOAP_ACTION_hentBruger = "http://galgeleg/hentBrugerRequest";
+    public static String SOAP_ACTION_hentBruger = "http://galgelegport/wsdl/hentBrugerRequest";
     public static String METHOD_NAME_hentBruger = "hentBruger";
 
     public static ArrayList<String> wordList = new ArrayList<String>();

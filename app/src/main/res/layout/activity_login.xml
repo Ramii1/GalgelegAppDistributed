@@ -27,7 +27,7 @@
             android:ems="10"
             android:hint="Indtast brugernavn her..."
             android:inputType="textPersonName"
-            android:text="s143599" />
+            android:text="s144819" />
 
         <TextView
             android:id="@+id/password_text"
@@ -42,7 +42,7 @@
             android:ems="10"
             android:hint="Indtast password her..."
             android:inputType="textPassword"
-            android:text="2903" />
+            android:text="123456asd" />
 
         <Button
             android:id="@+id/logind_btn"
