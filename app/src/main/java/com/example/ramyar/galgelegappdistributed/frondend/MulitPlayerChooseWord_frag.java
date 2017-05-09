@@ -1,3 +1,4 @@
+/*
 package com.example.ramyar.galgelegappdistributed.frondend;
 
 import android.content.Intent;
@@ -51,3 +52,4 @@ public class MulitPlayerChooseWord_frag extends Fragment
         });
     }
 }
+*/

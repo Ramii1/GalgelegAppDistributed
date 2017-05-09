@@ -1,3 +1,4 @@
+/*
 package com.example.ramyar.galgelegappdistributed.frondend;
 
 import android.content.Context;
@@ -59,3 +60,4 @@ public class HighScoreLogic
         return true;
     }
 }
+*/

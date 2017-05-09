@@ -1,3 +1,4 @@
+/*
 package com.example.ramyar.galgelegappdistributed.frondend;
 
 import android.os.Bundle;
@@ -38,3 +39,4 @@ public class HighScoreActivity extends AppCompatActivity
 
     }
 }
+*/

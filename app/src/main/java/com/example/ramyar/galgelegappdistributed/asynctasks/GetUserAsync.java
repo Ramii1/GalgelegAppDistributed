@@ -1,6 +1,7 @@
 package com.example.ramyar.galgelegappdistributed.asynctasks;
 
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 
 import com.example.ramyar.galgelegappdistributed.frondend.Constants;
 
@@ -13,7 +14,7 @@ import org.ksoap2.transport.HttpTransportSE;
  * Created by Ramyar on 04-05-2017.
  */
 
-public class GetUserAsync {
+public class GetUserAsync extends AppCompatActivity{
 
 
     @Nullable
@@ -87,10 +88,13 @@ public class GetUserAsync {
     @Nullable
     public static SoapObject getSoapGetSynligtOrd(String... params) {
         SoapObject getSoapGetSynligtOrd = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_getSynligtOrd);
-        SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_getSynligtOrd);
+       /* SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_getSynligtOrd);*/
 
-        getSoapGetSynligtOrd.addProperty("synligtOrd", params[0]);
+        getSoapGetSynligtOrd.addProperty("arg0", params[0]);
+        getSoapGetSynligtOrd.addProperty("arg1", params[1]);
+
         System.out.println(params[0]);
+        System.out.println(params[1]);
 
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
         envelope.setOutputSoapObject(getSoapGetSynligtOrd);

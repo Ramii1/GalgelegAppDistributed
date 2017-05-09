@@ -1,5 +1,7 @@
 package com.example.ramyar.galgelegappdistributed.frondend;
 
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -13,11 +15,13 @@ import com.example.ramyar.galgelegappdistributed.asynctasks.GetUserAsync;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import org.ksoap2.serialization.SoapObject;
+
 /**
  * Created by Ramyar on 09-05-2017.
  */
 
-public class SinglePlayerActiv extends AppCompatActivity implements View.OnClickListener {
+public class SinglePlayerActivity extends AppCompatActivity implements View.OnClickListener {
 
 
     private Button gætBtn;
@@ -35,6 +39,8 @@ public class SinglePlayerActiv extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_singel_player);
 
+        doGetSynligtOrd();
+
         gætBtn = (Button) findViewById(R.id.gætBtn);
         gætBtn.setOnClickListener(this);
 
@@ -42,8 +48,8 @@ public class SinglePlayerActiv extends AppCompatActivity implements View.OnClick
         gætBtn = (Button) findViewById(R.id.gætBtn);
         textView = (TextView) findViewById(R.id.textView2);
         editText = (EditText) findViewById(R.id.editText);
-        textView.setText("Du skal gætte dette ord: " + getUserAsync.getSoapGetSynligtOrd() +
-                "\nSkriv et bogstav og tryk 'Gæt'.\n");
+/*        textView.setText("Du skal gætte dette ord: " + doGetSynligtOrd(); +
+                "\nSkriv et bogstav og tryk 'Gæt'.\n");*/
 
 
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
@@ -52,6 +58,35 @@ public class SinglePlayerActiv extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onClick(View v) {
+    if (gætBtn == v) {
 
     }
+    }
+
+
+    public void doGetSynligtOrd() {
+
+        final ProgressDialog dialog = ProgressDialog.show(this, "please Wait", "Trying to signin");
+
+        new AsyncTask() {
+            @Override
+            protected SoapObject doInBackground(Object[] params) {
+                return GetUserAsync.getSoapGetSynligtOrd();
+            }
+
+            @Override
+            protected void onPostExecute(Object o) {
+                dialog.dismiss();
+
+                SoapObject so = (SoapObject) o;
+
+                System.out.println("hej" + so.toString());
+
+            }
+        }.execute();
+    }
+
+
+
+
 }

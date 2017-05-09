@@ -1,3 +1,4 @@
+/*
 package com.example.ramyar.galgelegappdistributed.asynctasks;
 
 import android.os.AsyncTask;
@@ -44,3 +45,4 @@ public class GetWordsAsync extends AsyncTask<Void, Void, ArrayList<String>>
         Constants.wordList = downloadedWordList;
     }
 }
+*/

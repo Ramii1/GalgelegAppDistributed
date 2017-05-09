@@ -1,3 +1,4 @@
+/*
 package com.example.ramyar.galgelegappdistributed.frondend;
 
 import java.io.BufferedReader;
@@ -152,3 +153,4 @@ public class Logic {
         return sb.toString();
     }
 }
+*/

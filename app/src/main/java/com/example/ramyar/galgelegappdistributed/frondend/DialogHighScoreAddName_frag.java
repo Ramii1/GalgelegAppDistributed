@@ -1,3 +1,4 @@
+/*
 package com.example.ramyar.galgelegappdistributed.frondend;
 
 
@@ -65,3 +66,4 @@ public class DialogHighScoreAddName_frag extends Fragment implements View.OnClic
         }
     }
 }
+*/
