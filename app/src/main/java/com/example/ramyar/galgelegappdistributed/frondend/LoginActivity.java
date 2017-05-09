@@ -29,12 +29,8 @@ public class LoginActivity extends AppCompatActivity {
     protected EditText username_input, password_input;
     protected Button login_button;
 
-    Login log = new Login();
-
-    String username = log.getBrugernavn();
-    String password = log.getPass();
-
-
+    String username;
+    String password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,11 +57,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private void doLogin() {
 
-
         username = username_input.getText().toString().trim();
         password = password_input.getText().toString().trim();
-
-
 
 
         //new GetUserAsync(LoginActivity.this).execute(username, password);
@@ -88,6 +81,9 @@ public class LoginActivity extends AppCompatActivity {
                     LoginActivity.this.startActivity(new Intent(LoginActivity.this, MainActivity.class));
 
                     System.out.println("RESULT: " + so);
+
+                    Login.setBrugernavn(username);
+                    Login.setPassword(password);
 
                 }else {
 

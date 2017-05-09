@@ -19,28 +19,19 @@ public class GetUserAsync extends AppCompatActivity{
 
     @Nullable
     public static SoapObject getSoapOpdaterSynligtOrd(String... params) {
-        SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_opdaterSynligtOrd);
 
-         SoapObject getSoapOpdaterSynligtOrd = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_getSynligtOrd);
+        SoapObject getSoapOpdaterSynligtOrd = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_getSynligtOrd);
 
-
-        getSoapOpdaterSynligtOrd.addProperty("opdaterSynligtOrd ", params[0]);
-
-        System.out.println(params[0]);
-
+        getSoapOpdaterSynligtOrd.addProperty("arg0", params[0]);
+        getSoapOpdaterSynligtOrd.addProperty("arg1", params[1]);
 
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
         envelope.setOutputSoapObject(getSoapOpdaterSynligtOrd);
-
-        System.out.println("soap getSoapOpdaterSynligtOrd " + envelope.toString());
 
         HttpTransportSE androidHttpTransport = new HttpTransportSE(Constants.URL);
         try {
             androidHttpTransport.debug = true;
             androidHttpTransport.call(Constants.SOAP_ACTION_opdaterSynligtOrd, envelope);
-
-            System.out.println(androidHttpTransport.requestDump);
-            System.out.println(androidHttpTransport.responseDump);
             SoapObject resultsRequestSOAP = (SoapObject) envelope.bodyIn;
             return resultsRequestSOAP;
 
@@ -56,11 +47,8 @@ public class GetUserAsync extends AppCompatActivity{
     public static SoapObject getSoapGetBrugteBogstaver(String... params) {
         SoapObject soapGetSoapGetBrugteBogstaver = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_GetBrugteBogstaver);
 
-        soapGetSoapGetBrugteBogstaver.addProperty("brugte bogstaver", params[0]);
-        SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_GetBrugteBogstaver);
-
-        System.out.println(params[0]);
-
+        soapGetSoapGetBrugteBogstaver.addProperty("arg0", params[0]);
+        soapGetSoapGetBrugteBogstaver.addProperty("arg1", params[1]);
 
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
         envelope.setOutputSoapObject(soapGetSoapGetBrugteBogstaver);
@@ -71,9 +59,6 @@ public class GetUserAsync extends AppCompatActivity{
         try {
             androidHttpTransport.debug = true;
             androidHttpTransport.call(Constants.SOAP_ACTION_GetBrugteBogstaver, envelope);
-
-            System.out.println(androidHttpTransport.requestDump);
-            System.out.println(androidHttpTransport.responseDump);
             SoapObject resultsRequestSOAP = (SoapObject) envelope.bodyIn;
             return resultsRequestSOAP;
 
@@ -96,8 +81,6 @@ public class GetUserAsync extends AppCompatActivity{
         System.out.println(params[0]);
         System.out.println(params[1]);
 
-
-
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
         envelope.setOutputSoapObject(getSoapGetSynligtOrd);
 
@@ -105,19 +88,24 @@ public class GetUserAsync extends AppCompatActivity{
 
         HttpTransportSE androidHttpTransport = new HttpTransportSE(Constants.URL);
         try {
+            System.out.println("R1");
             androidHttpTransport.debug = true;
             androidHttpTransport.call(Constants.SOAP_ACTION_getSynligtOrd, envelope);
-
+            System.out.println("R2");
             System.out.println(androidHttpTransport.requestDump);
+            System.out.println("R3");
             System.out.println(androidHttpTransport.responseDump);
+            System.out.println("R4");
             SoapObject resultsRequestSOAP = (SoapObject) envelope.bodyIn;
+            System.out.println("R5");
             return resultsRequestSOAP;
 
         } catch (Exception e) {
+            System.out.println("R6");
             e.printStackTrace();
             System.out.println("Error" + e);
         }
-        return getSoapGetSynligtOrd;
+        return null;
     }
 
 
@@ -127,21 +115,16 @@ public class GetUserAsync extends AppCompatActivity{
         SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_getOrdet);
 
         getSoapGetOrdet.addProperty("arg0", params[0]);
-        System.out.println(params[0]);
+        getSoapGetOrdet.addProperty("arg1", params[1]);
 
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
         envelope.setOutputSoapObject(getSoapGetOrdet);
-
-        System.out.println("soap output " + envelope.toString());
 
         HttpTransportSE androidHttpTransport = new HttpTransportSE(Constants.URL);
         try {
             androidHttpTransport.debug = true;
             androidHttpTransport.call(Constants.SOAP_ACTION_getOrdet, envelope);
             androidHttpTransport.call(Constants.SOAP_ACTION_getOrdet, envelope);
-
-            System.out.println(androidHttpTransport.requestDump);
-            System.out.println(androidHttpTransport.responseDump);
             SoapObject resultsRequestSOAP = (SoapObject) envelope.bodyIn;
             return resultsRequestSOAP;
 
@@ -155,23 +138,17 @@ public class GetUserAsync extends AppCompatActivity{
 
     @Nullable
     public static SoapObject getSoapGetAntalForkerteBogstaver(String... params) {
-        SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_getAntalForkerteBogstaver);
+        SoapObject antalForkerteBogstaver = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_getAntalForkerteBogstaver);
 
-        getSoapGetAntalForkerteBogstaver().addProperty("arg0", params[0]);
-        System.out.println(params[0]);
-
+        antalForkerteBogstaver.addProperty("arg0", params[0]);
+        antalForkerteBogstaver.addProperty("arg1", params[1]);
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-        envelope.setOutputSoapObject(getSoapGetAntalForkerteBogstaver());
-
-        System.out.println("soap output " + envelope.toString());
+        envelope.setOutputSoapObject(antalForkerteBogstaver);
 
         HttpTransportSE androidHttpTransport = new HttpTransportSE(Constants.URL);
         try {
             androidHttpTransport.debug = true;
             androidHttpTransport.call(Constants.SOAP_ACTION_getAntalForkerteBogstaver, envelope);
-
-            System.out.println(androidHttpTransport.requestDump);
-            System.out.println(androidHttpTransport.responseDump);
             SoapObject resultsRequestSOAP = (SoapObject) envelope.bodyIn;
             return resultsRequestSOAP;
 
@@ -218,17 +195,10 @@ public class GetUserAsync extends AppCompatActivity{
     public static SoapObject getSoapErSpilletVundet(String... params) {
 
         SoapObject getSoapErSpilletVundet = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_erSpilletVundet);
-
-        SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_erSpilletVundet);
-
-
         getSoapErSpilletVundet.addProperty("arg0", params[0]);
-        System.out.println(params[0]);
-
+        getSoapErSpilletVundet.addProperty("arg1", params[1]);
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
         envelope.setOutputSoapObject(getSoapErSpilletVundet);
-
-        System.out.println("soap output " + envelope.toString());
 
         HttpTransportSE androidHttpTransport = new HttpTransportSE(Constants.URL);
         try {
@@ -253,11 +223,8 @@ public class GetUserAsync extends AppCompatActivity{
 
         SoapObject getSoapErSpilletTabt = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_hentBruger);
 
-        SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_erSpilletTabt);
-
-
         getSoapErSpilletTabt.addProperty("arg0", params[0]);
-        System.out.println(params[0]);
+        getSoapErSpilletTabt.addProperty("arg1", params[1]);
 
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
         envelope.setOutputSoapObject(getSoapErSpilletTabt);
@@ -268,9 +235,6 @@ public class GetUserAsync extends AppCompatActivity{
         try {
             androidHttpTransport.debug = true;
             androidHttpTransport.call(Constants.SOAP_ACTION_erSpilletTabt, envelope);
-
-            System.out.println(androidHttpTransport.requestDump);
-            System.out.println(androidHttpTransport.responseDump);
             SoapObject resultsRequestSOAP = (SoapObject) envelope.bodyIn;
             return resultsRequestSOAP;
 
@@ -350,18 +314,20 @@ public class GetUserAsync extends AppCompatActivity{
 
 
     @Nullable
-    public static SoapObject getSoapGætBogstav(String... params) {
+    public static SoapObject getSoapGaetBogstav(String... params) {
 
-        SoapObject getSoapGætBogstav = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_gætBogstav);
+        SoapObject getSoapGaetBogstav = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_gætBogstav);
 
         SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_gætBogstav);
 
 
-        getSoapGætBogstav.addProperty("arg0", params[0]);
+        getSoapGaetBogstav.addProperty("arg0", params[0]);
+        getSoapGaetBogstav.addProperty("arg1", params[1]);
+        getSoapGaetBogstav.addProperty("arg2", params[2]);
         System.out.println(params[0]);
 
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-        envelope.setOutputSoapObject(getSoapGætBogstav);
+        envelope.setOutputSoapObject(getSoapGaetBogstav);
 
         System.out.println("soap output " + envelope.toString());
 
@@ -389,6 +355,7 @@ public class GetUserAsync extends AppCompatActivity{
 
         soap.addProperty("arg0", params[0]);
         soap.addProperty("arg1", params[1]);
+
         System.out.println(params[0]);
         System.out.println(params[1]);
 
