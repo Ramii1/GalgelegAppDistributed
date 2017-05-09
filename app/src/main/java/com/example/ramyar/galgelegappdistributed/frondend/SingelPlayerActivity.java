@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.ramyar.galgelegappdistributed.R;
+import com.example.ramyar.galgelegappdistributed.asynctasks.GetUserAsync;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
@@ -37,6 +38,7 @@ public class SingelPlayerActivity extends AppCompatActivity implements View.OnCl
     TextView timerpoints;
     Logic logik;
 
+    GetUserAsync userAsync = new GetUserAsync();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -44,8 +46,8 @@ public class SingelPlayerActivity extends AppCompatActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_singel_player);
 
-        timer = (TextView) findViewById(R.id.Timer);
-        timerpoints = (TextView) findViewById(R.id.timerpoints);
+/*        timer = (TextView) findViewById(R.id.Timer);
+        timerpoints = (TextView) findViewById(R.id.timerpoints);*/
 
         gætBtn = (Button) findViewById(R.id.gætBtn);
         gætBtn.setOnClickListener(this);
