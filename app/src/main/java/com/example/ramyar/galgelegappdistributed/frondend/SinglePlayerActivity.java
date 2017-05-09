@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.ramyar.galgelegappdistributed.Login;
 import com.example.ramyar.galgelegappdistributed.R;
 import com.example.ramyar.galgelegappdistributed.asynctasks.GetUserAsync;
 import com.google.android.gms.appindexing.AppIndex;
@@ -31,6 +32,10 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
     private GoogleApiClient client;
 
     GetUserAsync getUserAsync = new GetUserAsync();
+
+    Login log = new Login();
+    String username = log.getBrugernavn();
+    String password = log.getPass();
 
 
     @Override
@@ -66,12 +71,13 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
 
     public void doGetSynligtOrd() {
 
+        final LoginActivity loginActivity = new LoginActivity();
         final ProgressDialog dialog = ProgressDialog.show(this, "please Wait", "Trying to signin");
 
         new AsyncTask() {
             @Override
             protected SoapObject doInBackground(Object[] params) {
-                return GetUserAsync.getSoapGetSynligtOrd();
+                return GetUserAsync.getSoapGetSynligtOrd("s143591", "bulqe1234");
             }
 
             @Override
@@ -80,7 +86,7 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
 
                 SoapObject so = (SoapObject) o;
 
-                System.out.println("hej" + so.toString());
+                System.out.println(" hej " + so.toString());
 
             }
         }.execute();

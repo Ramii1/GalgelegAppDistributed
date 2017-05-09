@@ -87,14 +87,16 @@ public class GetUserAsync extends AppCompatActivity{
 
     @Nullable
     public static SoapObject getSoapGetSynligtOrd(String... params) {
+
         SoapObject getSoapGetSynligtOrd = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_getSynligtOrd);
-       /* SoapObject soap = new SoapObject(Constants.NAMESPACE, Constants.METHOD_NAME_getSynligtOrd);*/
 
         getSoapGetSynligtOrd.addProperty("arg0", params[0]);
         getSoapGetSynligtOrd.addProperty("arg1", params[1]);
 
         System.out.println(params[0]);
         System.out.println(params[1]);
+
+
 
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
         envelope.setOutputSoapObject(getSoapGetSynligtOrd);
@@ -115,7 +117,7 @@ public class GetUserAsync extends AppCompatActivity{
             e.printStackTrace();
             System.out.println("Error" + e);
         }
-        return null;
+        return getSoapGetSynligtOrd;
     }
 
 

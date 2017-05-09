@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.ramyar.galgelegappdistributed.Login;
 import com.example.ramyar.galgelegappdistributed.R;
 import com.example.ramyar.galgelegappdistributed.asynctasks.GetUserAsync;
 
@@ -21,17 +22,18 @@ import org.ksoap2.serialization.SoapObject;
 
 public class LoginActivity extends AppCompatActivity {
 
-  /*  GetUserAsync getUserAsync = new GetUserAsync(this);*/
 
-    /* Log */
     private static final String TAG = "";
 
     protected TextView test;
     protected EditText username_input, password_input;
     protected Button login_button;
 
-    private String username;
-    private String password;
+    Login log = new Login();
+
+    String username = log.getBrugernavn();
+    String password = log.getPass();
+
 
 
     @Override
@@ -47,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         login_button = (Button) findViewById(R.id.logind_btn);
 
 
+
         /* Normal LoginActivity */
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,8 +60,13 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void doLogin() {
+
+
         username = username_input.getText().toString().trim();
         password = password_input.getText().toString().trim();
+
+
+
 
         //new GetUserAsync(LoginActivity.this).execute(username, password);
         final ProgressDialog dialog = ProgressDialog.show(this, "please Wait", "Trying to signin");
