@@ -1,3 +1,4 @@
+/*
 package com.example.ramyar.galgelegappdistributed.frondend;
 
 import android.app.AlertDialog;
@@ -46,8 +47,10 @@ public class SingelPlayerActivity extends AppCompatActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_singel_player);
 
+*/
 /*        timer = (TextView) findViewById(R.id.Timer);
-        timerpoints = (TextView) findViewById(R.id.timerpoints);*/
+        timerpoints = (TextView) findViewById(R.id.timerpoints);*//*
+
 
         gætBtn = (Button) findViewById(R.id.gætBtn);
         gætBtn.setOnClickListener(this);
@@ -70,7 +73,7 @@ public class SingelPlayerActivity extends AppCompatActivity implements View.OnCl
             multiplayer_text.setVisibility(View.INVISIBLE);
         }
         else
-        {
+            {
             multiplayer_text.setVisibility(View.VISIBLE);
         }
 
@@ -269,3 +272,4 @@ public class SingelPlayerActivity extends AppCompatActivity implements View.OnCl
     }
 }
 
+*/
