@@ -74,7 +74,8 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
             GetAntalForkerteBogstaver();
             OpdaterSynligOrd();
             GetSynligtOrd();
-            ErSpilletTabt();
+            GetOrdet();
+           /* ErSpilletTabt();*/
             ErSpilletVundet();
 
             editText.setText("");
@@ -271,6 +272,7 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                 System.out.println("ErSpilletTabt Done!");
                 SoapObject so = (SoapObject) o;
                 boolean erSpilletTabt = Boolean.parseBoolean(so.getProperty(0).toString());
+                System.out.println("HEEEEEEEEEEEEEEEEEEEEEJ 1111111111" + erSpilletTabt);
                 if(erSpilletTabt) {
                     textView.setText("Du har desværre tabt spillet!\nPrøv igen forfra :-)");
                 }
@@ -296,6 +298,7 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                 System.out.println("ErSpilletVundet Done!");
                 SoapObject so = (SoapObject) o;
                 boolean erSpilletVundet = Boolean.parseBoolean(so.getProperty(0).toString());
+                System.out.println("HEEEEEEEEEEEEEEEEEEEEEJ" + erSpilletVundet);
                 if(erSpilletVundet) {
                     textView.setText("Du har vundet spillet!\nGodt gået, spil snart igen... :-)");
                 }
