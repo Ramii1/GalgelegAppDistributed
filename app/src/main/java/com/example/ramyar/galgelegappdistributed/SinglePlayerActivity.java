@@ -1,4 +1,4 @@
-package com.example.ramyar.galgelegappdistributed.frondend;
+package com.example.ramyar.galgelegappdistributed;
 
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
@@ -9,32 +9,22 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.example.ramyar.galgelegappdistributed.Login;
-import com.example.ramyar.galgelegappdistributed.R;
-import com.example.ramyar.galgelegappdistributed.asynctasks.GetUserAsync;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
-
 import org.ksoap2.serialization.SoapObject;
 
 /**
- * Created by Ramyar on 09-05-2017.
+ * Created by Ramyar on 04-05-2017.
  */
 
-public class SinglePlayerActivity extends AppCompatActivity implements View.OnClickListener {
-
-
+public class SinglePlayerActivity extends AppCompatActivity implements View.OnClickListener
+{
     private Button button;
     private TextView textView;
     private EditText editText;
     private ImageView imageView;
-    private GoogleApiClient client;
-    private static String _prikkerneHentetFraServeren;
     private static String _ordetHentetFraServeren;
-    private int _antalForkerteBogstaver;
-
-/*    GetUserAsync getUserAsync = new GetUserAsync();*/
+    private GoogleApiClient client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -42,146 +32,151 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_singel_player);
 
-        button = (Button) findViewById(R.id.gætBtn);
-        button.setOnClickListener(this);
-
         imageView = (ImageView) findViewById(R.id.imageView);
         button = (Button) findViewById(R.id.gætBtn);
         textView = (TextView) findViewById(R.id.textView2);
         editText = (EditText) findViewById(R.id.editText);
-
-
+        editText.setHint("Indsæt Bogstav");
+        button = (Button) findViewById(R.id.gætBtn);
+        button.setText("Gæt");
+        button.setOnClickListener(this);
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
 
+        Nulstil();
         GetSynligtOrd();
         GetOrdet();
     }
 
-
     @Override
-    public void onClick(View v) {
-        if (v == button)
+    public void onClick(View v)
+    {
+        if (v == button && ((Button)v).getText() == "Gæt" )
         {
-            String bogstav = editText.getText().toString();
-
-            if (bogstav.length() > 1)
-            {
-                editText.setError("Skriv ét bogstav");
-                return;
-            }
-
-            SendBogstav(bogstav);
-            GetAntalForkerteBogstaver();
-            OpdaterSynligOrd();
-            GetSynligtOrd();
-            GetOrdet();
-           /* ErSpilletTabt();*/
-            ErSpilletVundet();
-
-            editText.setText("");
-            editText.setError(null);
+            StartTheGame();
+        }
+        else if (v == button && ((Button)v).getText() == "Spil igen")
+        {
+            Nulstil();
+            StartTheGame();
         }
     }
 
-    //Kalde til serveren:
+    private void StartTheGame()
+    {
+        String bogstav = editText.getText().toString();
 
-    public void GetSynligtOrd() {
+        if (bogstav.length() > 1)
+        {
+            editText.setError("Skriv ét bogstav");
+            return;
+        }
 
+        GaetBogstav(bogstav);
+        GetAntalForkerteBogstaver();
+        OpdaterSynligOrd();
+        GetSynligtOrd();
+        GetOrdet();
+        ErSpilletVundet();
+        ErSpilletTabt();
+
+        editText.setText("");
+        editText.setError(null);
+        editText.setVisibility(editText.VISIBLE);
+    }
+
+    public void GetSynligtOrd()
+    {
         final ProgressDialog dialog = ProgressDialog.show(this, "please Wait", "Trying to signin");
 
-        new AsyncTask() {
+        new AsyncTask()
+        {
             @Override
-            protected SoapObject doInBackground(Object[] params) {
+            protected SoapObject doInBackground(Object[] params)
+            {
                 String username = Login.getBrugernavn();
                 String password = Login.getPassword();
-                return GetUserAsync.getSoapGetSynligtOrd(username, password);
+                return GetSoap.getSoapGetSynligtOrd(username, password);
             }
 
             @Override
-            protected void onPostExecute(Object o) {
+            protected void onPostExecute(Object o)
+            {
                 dialog.dismiss();
-                System.out.println("DD1 " + o.toString());
-                System.out.println("DD2 " + o.getClass().getName());
                 SoapObject so = (SoapObject) o;
-                System.out.println("DD3 " + so.getProperty(0).toString());
-                System.out.println(" hej " + so.getName());
                 String returnFromServer = so.getProperty(0).toString();
-                _prikkerneHentetFraServeren = returnFromServer;
                 textView.setText("Du skal gætte dette ord: " + returnFromServer +
                         "\nSkriv et bogstav og tryk 'Gæt'.\n");
             }
         }.execute();
     }
 
-    public void GetOrdet() {
-
+    public void GetOrdet()
+    {
         final ProgressDialog dialog = ProgressDialog.show(this, "please Wait", "Trying to signin");
 
-        new AsyncTask() {
+        new AsyncTask()
+        {
             @Override
-            protected SoapObject doInBackground(Object[] params) {
+            protected SoapObject doInBackground(Object[] params)
+            {
                 String username = Login.getBrugernavn();
                 String password = Login.getPassword();
-                return GetUserAsync.getSoapGetOrdet(username, password);
+                return GetSoap.getSoapGetOrdet(username, password);
             }
 
             @Override
-            protected void onPostExecute(Object o) {
+            protected void onPostExecute(Object o)
+            {
                 dialog.dismiss();
-                System.out.println("GetOrdet 1 " + o.toString());
-                System.out.println("GetOrdet 2 " + o.getClass().getName());
                 SoapObject so = (SoapObject) o;
-                System.out.println("GetOrdet 3 " + so.getProperty(0).toString());
                 _ordetHentetFraServeren = so.getProperty(0).toString();
                 System.out.println("GetOrdet 4 " + _ordetHentetFraServeren);
-                System.out.println("GetOrdet 5 " + so.getName());
-            }
-        }.execute();
-    }
-    //GetBogstav
-    public void SendBogstav(final String bogstav) {
-
-        final ProgressDialog dialog = ProgressDialog.show(this, "please Wait", "Trying to signin");
-
-        new AsyncTask() {
-            @Override
-            protected SoapObject doInBackground(Object[] params) {
-                String username = Login.getBrugernavn();
-                String password = Login.getPassword();
-                return GetUserAsync.getSoapGaetBogstav(username, password, bogstav);
-            }
-
-            @Override
-            protected void onPostExecute(Object o) {
-                dialog.dismiss();
-                System.out.println("SendBogstav DONE!");
             }
         }.execute();
     }
 
-    public void GetAntalForkerteBogstaver() {
-
+    public void GaetBogstav(final String bogstav)
+    {
         final ProgressDialog dialog = ProgressDialog.show(this, "please Wait", "Trying to signin");
 
-        new AsyncTask() {
+        new AsyncTask()
+        {
             @Override
-            protected SoapObject doInBackground(Object[] params) {
+            protected SoapObject doInBackground(Object[] params)
+            {
                 String username = Login.getBrugernavn();
                 String password = Login.getPassword();
-                return GetUserAsync.getSoapGetAntalForkerteBogstaver(username, password);
+                return GetSoap.getSoapGaetBogstav(username, password, bogstav);
             }
 
             @Override
-            protected void onPostExecute(Object o) {
+            protected void onPostExecute(Object o)
+            {
                 dialog.dismiss();
-                System.out.println("GetAntalForkerteBogstaver 1 " + o.toString());
-                System.out.println("GetAntalForkerteBogstaver 2 " + o.getClass().getName());
+            }
+        }.execute();
+    }
+
+    public void GetAntalForkerteBogstaver()
+    {
+        final ProgressDialog dialog = ProgressDialog.show(this, "please Wait", "Trying to signin");
+
+        new AsyncTask()
+        {
+            @Override
+            protected SoapObject doInBackground(Object[] params)
+            {
+                String username = Login.getBrugernavn();
+                String password = Login.getPassword();
+                return GetSoap.getSoapGetAntalForkerteBogstaver(username, password);
+            }
+
+            @Override
+            protected void onPostExecute(Object o)
+            {
+                dialog.dismiss();
                 SoapObject so = (SoapObject) o;
-                System.out.println("GetAntalForkerteBogstaver 3 " + so.getProperty(0).toString());
-                System.out.println("GetAntalForkerteBogstaver 4 " + so.getName());
                 int antalForkerteBogstaver = Integer.parseInt(so.getProperty(0).toString());
-                int antalKarakterInOrdet = _prikkerneHentetFraServeren.length();
-                System.out.println("GetAntalForkerteBogstaver 5 " + so.getProperty(0).toString());
 
                 switch (antalForkerteBogstaver)
                 {
@@ -210,22 +205,112 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
         }.execute();
     }
 
-    public void OpdaterSynligOrd() {
-
+    public void OpdaterSynligOrd()
+    {
         final ProgressDialog dialog = ProgressDialog.show(this, "please Wait", "Trying to signin");
 
-        new AsyncTask() {
+        new AsyncTask()
+        {
             @Override
-            protected SoapObject doInBackground(Object[] params) {
+            protected SoapObject doInBackground(Object[] params)
+            {
                 String username = Login.getBrugernavn();
                 String password = Login.getPassword();
-                return GetUserAsync.getSoapOpdaterSynligtOrd(username, password);
+                return GetSoap.getSoapOpdaterSynligtOrd(username, password);
             }
 
             @Override
-            protected void onPostExecute(Object o) {
+            protected void onPostExecute(Object o)
+            {
                 dialog.dismiss();
-                System.out.println("OpdaterSynligOrd DONE!");
+            }
+        }.execute();
+    }
+
+    public void ErSpilletTabt()
+    {
+        final ProgressDialog dialog = ProgressDialog.show(this, "please Wait", "Trying to signin");
+
+        new AsyncTask()
+        {
+            @Override
+            protected SoapObject doInBackground(Object[] params)
+            {
+                String username = Login.getBrugernavn();
+                String password = Login.getPassword();
+                return GetSoap.getSoapErSpilletTabt(username, password);
+            }
+
+            @Override
+            protected void onPostExecute(Object o)
+            {
+                dialog.dismiss();
+                SoapObject so = (SoapObject) o;
+                boolean erSpilletTabt = Boolean.parseBoolean(so.getProperty(0).toString());
+
+                if(erSpilletTabt)
+                {
+                    textView.setText("Du har desværre tabt spillet!\nPrøv igen forfra :-)");
+                    button = (Button) findViewById(R.id.gætBtn);
+                    button.setText("Spil igen");
+                    editText.setVisibility(editText.GONE);
+                }
+            }
+        }.execute();
+    }
+
+    public void ErSpilletVundet()
+    {
+        final ProgressDialog dialog = ProgressDialog.show(this, "please Wait", "Trying to signin");
+
+        new AsyncTask()
+        {
+            @Override
+            protected SoapObject doInBackground(Object[] params)
+            {
+                String username = Login.getBrugernavn();
+                String password = Login.getPassword();
+                return GetSoap.getSoapErSpilletVundet(username, password);
+            }
+
+            @Override
+            protected void onPostExecute(Object o)
+            {
+                dialog.dismiss();
+                SoapObject so = (SoapObject) o;
+                boolean erSpilletVundet = Boolean.parseBoolean(so.getProperty(0).toString());
+
+                if(erSpilletVundet)
+                {
+                    textView.setText("Du har vundet spillet!\nGodt gået, spil snart igen... :-)");
+                    button = (Button) findViewById(R.id.gætBtn);
+                    button.setText("Spil igen");
+                    editText.setVisibility(editText.GONE);
+                }
+            }
+        }.execute();
+    }
+
+    public void Nulstil()
+    {
+        final ProgressDialog dialog = ProgressDialog.show(this, "please Wait", "Trying to signin");
+
+        new AsyncTask()
+        {
+            @Override
+            protected SoapObject doInBackground(Object[] params)
+            {
+                String username = Login.getBrugernavn();
+                String password = Login.getPassword();
+                return GetSoap.getSoapNulstil(username, password);
+            }
+
+            @Override
+            protected void onPostExecute(Object o)
+            {
+                dialog.dismiss();
+                button.setText("Gæt");
+                imageView.setImageResource(R.drawable.galge);
             }
         }.execute();
     }
@@ -239,7 +324,7 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
             protected SoapObject doInBackground(Object[] params) {
                 String username = Login.getBrugernavn();
                 String password = Login.getPassword();
-                return GetUserAsync.getSoapGetBrugteBogstaver(username, password);
+                return GetSoap.getSoapGetBrugteBogstaver(username, password);
             }
 
             @Override
@@ -250,58 +335,6 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                 SoapObject so = (SoapObject) o;
                 System.out.println("GetBrugteBogstaver 3 " + so.getProperty(0).toString());
                 System.out.println("GetBrugteBogstaver 4 " + so.getName());
-            }
-        }.execute();
-    }
-
-    public void ErSpilletTabt() {
-
-        final ProgressDialog dialog = ProgressDialog.show(this, "please Wait", "Trying to signin");
-
-        new AsyncTask() {
-            @Override
-            protected SoapObject doInBackground(Object[] params) {
-                String username = Login.getBrugernavn();
-                String password = Login.getPassword();
-                return GetUserAsync.getSoapErSpilletTabt(username, password);
-            }
-
-            @Override
-            protected void onPostExecute(Object o) {
-                dialog.dismiss();
-                System.out.println("ErSpilletTabt Done!");
-                SoapObject so = (SoapObject) o;
-                boolean erSpilletTabt = Boolean.parseBoolean(so.getProperty(0).toString());
-                System.out.println("HEEEEEEEEEEEEEEEEEEEEEJ 1111111111" + erSpilletTabt);
-                if(erSpilletTabt) {
-                    textView.setText("Du har desværre tabt spillet!\nPrøv igen forfra :-)");
-                }
-            }
-        }.execute();
-    }
-
-    public void ErSpilletVundet() {
-
-        final ProgressDialog dialog = ProgressDialog.show(this, "please Wait", "Trying to signin");
-
-        new AsyncTask() {
-            @Override
-            protected SoapObject doInBackground(Object[] params) {
-                String username = Login.getBrugernavn();
-                String password = Login.getPassword();
-                return GetUserAsync.getSoapErSpilletVundet(username, password);
-            }
-
-            @Override
-            protected void onPostExecute(Object o) {
-                dialog.dismiss();
-                System.out.println("ErSpilletVundet Done!");
-                SoapObject so = (SoapObject) o;
-                boolean erSpilletVundet = Boolean.parseBoolean(so.getProperty(0).toString());
-                System.out.println("HEEEEEEEEEEEEEEEEEEEEEJ" + erSpilletVundet);
-                if(erSpilletVundet) {
-                    textView.setText("Du har vundet spillet!\nGodt gået, spil snart igen... :-)");
-                }
             }
         }.execute();
     }

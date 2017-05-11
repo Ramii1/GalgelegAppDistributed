@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
+    android:background="@drawable/gradient_background"
     android:orientation="vertical">
 
     <LinearLayout
@@ -11,45 +12,85 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/brugernavn_text"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:text="Brugernavn: " />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/brugernavn_edit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Indtast brugernavn her..."
-            android:inputType="textPersonName"
-            android:text="s144819" />
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/textView2"
+                android:shadowColor="#2b3131"
 
-        <TextView
-            android:id="@+id/password_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Password: " />
+                android:shadowRadius="12"
+                android:text="HANGMAN"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textColorLink="@android:color/white"
+                android:textSize="64sp"
+                android:textStyle="normal|bold|italic" />
+        </LinearLayout>
 
-        <EditText
-            android:id="@+id/password_edit"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Indtast password her..."
-            android:inputType="textPassword"
-            android:text="123456asd" />
+            android:layout_height="match_parent"
+            android:layout_marginTop="50dp"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/logind_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="Log ind" />
+            <TextView
+                android:id="@+id/brugernavn_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:allowUndo="false"
+                android:elevation="0dp"
+                android:gravity="center_horizontal"
+                android:text="Brugernavn: "
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/brugernavn_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:hint="Indtast brugernavn her..."
+                android:inputType="textPersonName"
+                android:text="s144819"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/password_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Password: "
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/password_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:hint="Indtast password her..."
+                android:inputType="textPassword"
+                android:text="123456asd"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/logind_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Log ind"
+                android:textSize="24sp" />
+        </LinearLayout>
 
     </LinearLayout>
 

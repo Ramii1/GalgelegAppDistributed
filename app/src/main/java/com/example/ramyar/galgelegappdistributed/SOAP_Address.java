@@ -1,15 +1,13 @@
-package com.example.ramyar.galgelegappdistributed.frondend;
+package com.example.ramyar.galgelegappdistributed;
 
 import android.app.Application;
 
-import java.util.ArrayList;
+/**
+ * Created by Ramyar on 04-05-2017.
+ */
 
-
-public class Constants extends Application
+public class SOAP_Address extends Application
 {
-
-
-    /* SOAP */
     public static String NAMESPACE = "http://galgelegport/wsdl";
     public static String URL = "http://ubuntu4.javabog.dk:9591/Gruppe11/GalgeService?wsdl";
 
@@ -45,10 +43,4 @@ public class Constants extends Application
     public static String METHOD_NAME_getScore = "getScore";
     public static String SOAP_ACTION_toString = "http://galgelegport/wsdl/toStringRequest";
     public static String METHOD_NAME_toString = "toString";
-
-    public static ArrayList<String> wordList = new ArrayList<String>();
-    static String gameType;
-    static String ordet;
-    static String name;
-
 }

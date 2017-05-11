@@ -1,14 +1,15 @@
-package com.example.ramyar.galgelegappdistributed.frondend;
+package com.example.ramyar.galgelegappdistributed;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.ramyar.galgelegappdistributed.R;
+/**
+ * Created by Ramyar on 04-05-2017.
+ */
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener
 {
@@ -17,15 +18,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public Button highScoreBtn;
     public TextView multiplayer_text;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-/*        new GetWordsAsync().execute();*/
-        multiplayer_text = (TextView) findViewById(R.id.multiplayer_text);
+       /* multiplayer_text = (TextView) findViewById(R.id.multiplayer_text);*/
         spilBtn = (Button) findViewById(R.id.spilBtn);
         spilBtn.setOnClickListener(this);
 
@@ -34,38 +33,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         highScoreBtn = (Button) findViewById(R.id.highScoreBtn);
         highScoreBtn.setOnClickListener(this);
-
     }
-
 
     @Override
     public void onClick(View v)
     {
         if (v == spilBtn)
         {
-            Constants.gameType = "SingelPlayer";
-            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-/*            ft.replace(R.id.fragment_container , new DialogHighScoreAddName_frag());
-            ft.addToBackStack(null);
-            ft.commit();*/
-
             Intent intent = new Intent(MainActivity.this, SinglePlayerActivity.class);
             startActivity(intent);
-
-
-        }
-/*        else if (v == multiBtn)
-        {
-            Constants.gameType = "multiPlayer";
-            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.fragment_container , new DialogHighScoreAddName_frag());
-            ft.addToBackStack(null);
-            ft.commit();
-        }*/
-        else if(v == highScoreBtn )
-        {
-/*            Intent intent = new Intent(this , HighScoreActivity.class);
-            startActivity(intent);*/
         }
     }
 }
