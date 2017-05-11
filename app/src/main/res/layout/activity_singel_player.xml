@@ -78,21 +78,6 @@
                 android:id="@+id/multiplayer_text"
                 android:text="Din ven har valgt et ord" />
 
-            <TextView
-                android:text="TextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:id="@+id/Timer" />
-
-            <TextView
-                android:text="TextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/timerpoints"
-                android:layout_alignParentRight="true"
-                android:layout_below="@id/Timer"/>
-
         </RelativeLayout>
     </LinearLayout>
 

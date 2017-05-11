@@ -41,33 +41,33 @@
             android:layout_toEndOf="@+id/textView2" />
 
         <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="154dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
             android:layout_marginStart="100dp"
+            android:orientation="vertical"
             android:paddingTop="220dp">
 
             <Button
-                android:text="singelplayer"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
                 android:id="@+id/spilBtn"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/textView"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                android:text="singelplayer" />
 
             <Button
-                android:text="High Score"
+                android:id="@+id/highScoreBtn"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/highScoreBtn" />
+                android:text="High Score" />
 
             <Button
-                android:text="About"
+                android:id="@+id/multiBtn"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/multiBtn" />
+                android:text="About" />
 
 
         </LinearLayout>
