@@ -61,13 +61,10 @@ public class LoginActivity extends AppCompatActivity
             protected void onPostExecute(Object o)
             {
                 dialog.dismiss();
-
                 SoapObject so = (SoapObject) o;
-
                 if(so.getProperty(0).toString().equals("true"))
                 {
                     LoginActivity.this.startActivity(new Intent(LoginActivity.this, MainActivity.class));
-
                     Login.setBrugernavn(username);
                     Login.setPassword(password);
                 }

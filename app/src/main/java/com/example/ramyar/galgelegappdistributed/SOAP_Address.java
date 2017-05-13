@@ -11,6 +11,8 @@ public class SOAP_Address extends Application
     public static String NAMESPACE = "http://galgelegport/wsdl";
     public static String URL = "http://ubuntu4.javabog.dk:9591/Gruppe11/GalgeService?wsdl";
 
+    public static String SOAP_ACTION_hentBruger = "http://galgelegport/wsdl/hentBrugerRequest";
+    public static String METHOD_NAME_hentBruger = "hentBruger";
     public static String SOAP_ACTION_GetBrugteBogstaver = "http://galgelegport/wsdl/getBrugteBogstaverRequest";
     public static String METHOD_NAME_GetBrugteBogstaver = "getBrugteBogstaver";
     public static String SOAP_ACTION_getSynligtOrd = "http://galgelegport/wsdl/getSynligtOrdRequest";
@@ -33,8 +35,7 @@ public class SOAP_Address extends Application
     public static String METHOD_NAME_opdaterSynligtOrd = "opdaterSynligtOrd";
     public static String SOAP_ACTION_gætBogstav = "http://galgelegport/wsdl/gætBogstavRequest";
     public static String METHOD_NAME_gætBogstav = "gætBogstav";
-    public static String SOAP_ACTION_hentBruger = "http://galgelegport/wsdl/hentBrugerRequest";
-    public static String METHOD_NAME_hentBruger = "hentBruger";
+
     public static String SOAP_ACTION_getFornavn = "http://galgelegport/wsdl/getFornavnRequest";
     public static String METHOD_NAME_getFornavn = "getFornavn";
     public static String SOAP_ACTION_getRankList = "http://galgelegport/wsdl/getRankListRequest";
