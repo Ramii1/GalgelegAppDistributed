@@ -7,9 +7,7 @@ import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 
-/**
- * Created by Ramyar on 04-05-2017.
- */
+
 
 public class GetSoap extends AppCompatActivity
 {

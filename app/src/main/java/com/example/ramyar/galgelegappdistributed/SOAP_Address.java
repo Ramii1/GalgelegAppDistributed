@@ -2,9 +2,6 @@ package com.example.ramyar.galgelegappdistributed;
 
 import android.app.Application;
 
-/**
- * Created by Ramyar on 04-05-2017.
- */
 
 public class SOAP_Address extends Application
 {
