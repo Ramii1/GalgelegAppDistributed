@@ -300,4 +300,35 @@ public class GetSoap extends AppCompatActivity
         }
         return null;
     }
+
+    @Nullable
+    public static SoapObject getSoapErSpilletSlut(String... params)
+    {
+        SoapObject getSoapErSpilletSlut = new SoapObject(SOAP_Address.NAMESPACE, SOAP_Address.METHOD_NAME_erSpilletSlut);
+
+        getSoapErSpilletSlut.addProperty("arg0", params[0]);
+        getSoapErSpilletSlut.addProperty("arg1", params[1]);
+
+        SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+        envelope.setOutputSoapObject(getSoapErSpilletSlut);
+
+        System.out.println("soap output " + envelope.toString());
+
+        HttpTransportSE androidHttpTransport = new HttpTransportSE(SOAP_Address.URL);
+        try
+        {
+            androidHttpTransport.debug = true;
+            androidHttpTransport.call(SOAP_Address.SOAP_ACTION_erSpilletSlut, envelope);
+            SoapObject resultsRequestSOAP = (SoapObject) envelope.bodyIn;
+            return resultsRequestSOAP;
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            System.out.println("Error" + e);
+        }
+        return null;
+    }
+
+
 }

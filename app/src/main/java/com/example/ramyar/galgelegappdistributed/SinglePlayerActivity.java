@@ -78,6 +78,7 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
         GetOrdet();
         ErSpilletVundet();
         ErSpilletTabt();
+        ErSpilletSlut();
 
         editText.setText("");
         editText.setError(null);
@@ -338,4 +339,34 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
             }
         }.execute();
     }
+
+    public void ErSpilletSlut()
+    {
+        final ProgressDialog dialog = ProgressDialog.show(this, "please Wait", "Trying to signin");
+
+        new AsyncTask()
+        {
+            @Override
+            protected SoapObject doInBackground(Object[] params)
+            {
+                String username = Login.getBrugernavn();
+                String password = Login.getPassword();
+                return GetSoap.getSoapErSpilletSlut(username, password);
+            }
+
+            @Override
+            protected void onPostExecute(Object o)
+            {
+                dialog.dismiss();
+                SoapObject so = (SoapObject) o;
+                boolean erSpilletSlut = Boolean.parseBoolean(so.getProperty(0).toString());
+
+                if(erSpilletSlut)
+                {
+                    System.out.println("done");
+                }
+            }
+        }.execute();
+    }
+
 }
