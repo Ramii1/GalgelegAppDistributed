@@ -1,8 +1,6 @@
 package com.example.ramyar.galgelegappdistributed;
 
-/**
- * Created by Ramyar on 09-05-2017.
- */
+
 
 public class Login
 {

@@ -11,9 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import org.ksoap2.serialization.SoapObject;
 
-/**
- * Created by Ramyar on 02-05-2017.
- */
+
 
 public class LoginActivity extends AppCompatActivity
 {

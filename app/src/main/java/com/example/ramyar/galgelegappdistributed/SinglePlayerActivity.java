@@ -13,9 +13,7 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 import org.ksoap2.serialization.SoapObject;
 
-/**
- * Created by Ramyar on 04-05-2017.
- */
+
 
 public class SinglePlayerActivity extends AppCompatActivity implements View.OnClickListener
 {
